@@ -1,0 +1,12 @@
+{
+  "short_name": "Calculator App",
+  "name": "Calculator App by Yoseph",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}
