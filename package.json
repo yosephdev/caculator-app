@@ -1,0 +1,30 @@
+{
+  "name": "cacultaor-app",
+  "version": "1.0.0",
+  "description": "caculator app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isakbet/cacultaor-app.git"
+  },
+  "keywords": [
+    "calculator"
+  ],
+  "author": "Yoseph Berhane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isakbet/cacultaor-app/issues"
+  },
+  "homepage": "https://github.com/isakbet/cacultaor-app#readme",
+  "dependencies": {
+    "i": "^0.3.7",
+    "npm": "^8.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^5.0.0",
+    "react-textfit": "^1.1.1"
+  }
+}
