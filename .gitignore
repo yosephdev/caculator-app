@@ -29,3 +29,18 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
+dist
+.vscode
+
+*.swp
+*.bak
+*.tgz
+
+.DS_Store
+.next
+/.env
+/public
+__pycache__
+.vercel
+.output
+.turbo
