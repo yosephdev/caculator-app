@@ -1,23 +1,134 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Spartan", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Spartan', sans-serif;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  font-weight: 700;
   display: flex;
+  padding: 20px 0;
   align-items: center;
   justify-content: center;
-  background-color: rgb(109, 109, 109);
-   transition: 0.8s;
-   -webkit-transition: 0.8s;
-   -moz-transition: 0.8s;
-   -ms-transition: 0.8s;
-   -o-transition: 0.8s;
+  background-color: hsl(222, 26%, 31%);
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -ms-transition: 0.8s;
+  -o-transition: 0.8s;
+}
+
+body {
+  line-height: 1;
+}
+
+body .calc-wrapper {
+  width: 539px;
+}
+
+aside,
+div,
+footer,
+header,
+nav {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: Spartan;
+  vertical-align: baseline;
+}
+
+aside,
+footer,
+header,
+nav {
+  display: block;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-library {
+  width: 16px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  color: #fffeff;
+  margin-bottom: 5px;
+}
+
+nav header {
+  font-size: 28px;
+  line-height: 32px;
+  padding-top: 12px;
+}
+
+nav aside {
+  display: flex;
+}
+
+nav aside p {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding-top: 25px;
+  padding-right: 24px;
+}
+
+nav aside #theme-grid {
+  width: 73px;
+}
+
+nav aside #theme-grid #theme-numbers {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 16px;
+  padding: 0 3px;
+}
+
+nav aside #theme-grid #theme-numbers div {
+  width: 33.33%;
+  text-align: center;
+}
+
+nav aside #theme-grid #theme-bullets {
+  background-color: #181f32;
+  height: 25px;
+  border-radius: 16px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 3px;
+}
+
+nav aside #theme-grid #theme-bullets div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.33%;
+  cursor: pointer;
+}
+
+nav aside #theme-grid #theme-bullets div #bullet {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: hsl(6, 63%, 50%);
+  transition: all 0.3s;
 }
 
 .calc-wrapper {
@@ -25,16 +136,20 @@ body {
   height: 540px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #485461;
-  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  background-color: hsl(224, 36%, 15%);
+  background-image: linear-gradient(
+    315deg,
+    hsl(223, 31%, 20%) 0%,
+    hsl(224, 36%, 15%) 74%
+  );
 }
 
 .screen-wrapper {
   height: 100px;
-  width: 320px;
+  width: 517px;
   margin-bottom: 10px;
   padding: 0 10px;
-  background-color: #4357692d;
+  background-color: hsl(223, 31%, 20%);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -54,7 +169,7 @@ body {
 
 button {
   border: none;
-  background-color: rgb(41, 38, 38);
+  background-color: hsl(225, 21%, 49%);
   font-size: 24px;
   color: rgb(255, 255, 255);
   font-weight: bold;
@@ -64,14 +179,41 @@ button {
 }
 
 button:hover {
-  background-color: rgb(160, 160, 160);
+  background-color: hsl(224, 28%, 35%);
 }
 
 .equals {
   grid-column: 3 / 5;
-  background-color: rgb(243, 61, 29);
+  background-color: hsl(6, 63%, 50%);
 }
 
 .equals:hover {
-  background-color: rgb(228, 39, 15);
+  background-color: hsl(6, 70%, 34%);
+}
+
+footer {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 576px) {
+  main .calc-wrapper nav aside #theme-grid #theme-numbers {
+    width: 300px;
+  }
+  main .calc-wrapper nav aside #theme-grid #theme-numbers {
+    height: 87px;
+    line-height: 87px;
+    padding-right: 26px;
+    font-size: 48px;
+  }
+  main .calc-wrapper nav aside #theme-grid #theme-numbers {
+    height: auto;
+    padding: 15px;
+    gap: 14px;
+  }
+  main .calc-wrapper nav aside #theme-grid #theme-numbers {
+    height: 55px;
+    font-size: 44px;
+    line-height: 55px;
+  }
 }
