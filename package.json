@@ -1,5 +1,5 @@
 {
-  "homepage": "https://cacultaor-app.vercel.app/",
+  "homepage": "https://caculator-app.vercel.app/",
   "description": "![Screenshot for the Calculator app](./public/screencapture-calc.png)",
   "name": "calculator-app",
   "version": "0.1.0",
@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isakbet/cacultaor-app.git"
+    "url": "git+https://github.com/isakbet/caculator-app.git"
   },
   "keywords": [],
   "author": "Yoseph Berhane",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/isakbet/cacultaor-app/issues"
+    "url": "https://github.com/isakbet/caculator-app/issues"
   },
-  "homepage": "https://github.com/isakbet/cacultaor-app#readme",
+  "homepage": "https://github.com/isakbet/caculator-app#readme",
   "browserslist": {
     "production": [
       ">0.2%",
