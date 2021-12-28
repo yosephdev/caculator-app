@@ -4,14 +4,9 @@
 
 Thanks for checking out this project.
 
-
-# React - Calculator app
-
-A calculator project built with React.
+A calculator app built with React.
 
 ![Calculator app Screenshot](https://)
-
-## Welcome! 👋
 
 ## Features
 
