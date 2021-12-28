@@ -5,7 +5,7 @@
     "react-scripts": "^5.0.0",
     "react-textfit": "^1.1.1"
   },
-  "name": "cacultaor-app",
+  "name": "calculator-app",
   "description": "![Design preview for the Calculator app coding challenge](./design/desktop-preview.jpg)",
   "version": "1.0.0",
   "main": "index.js",
@@ -19,11 +19,25 @@
     "type": "git",
     "url": "git+https://github.com/isakbet/cacultaor-app.git"
   },
-  "keywords": ["cacultaor-app"],
+  "keywords": [
+    "cacultaor-app"
+  ],
   "author": "Yoseph Berhane",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/isakbet/cacultaor-app/issues"
   },
-  "homepage": "https://github.com/isakbet/cacultaor-app#readme"
+  "homepage": "https://github.com/isakbet/cacultaor-app#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
