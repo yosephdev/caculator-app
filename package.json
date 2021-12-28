@@ -1,5 +1,5 @@
 {
-  "homepage": "https://caculator-app.vercel.app/",
+  "homepage": "https://github.com/isakbet/caculator-app#readme",
   "description": "![Screenshot for the Calculator app](./public/screencapture-calc.png)",
   "name": "calculator-app",
   "version": "0.1.0",
@@ -9,7 +9,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^5.0.0",
-    "react-textfit": "^1.1.1"
+    "react-textfit": "^1.1.1",
+    "svgo": "^2.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,7 +30,6 @@
   "bugs": {
     "url": "https://github.com/isakbet/caculator-app/issues"
   },
-  "homepage": "https://github.com/isakbet/caculator-app#readme",
   "browserslist": {
     "production": [
       ">0.2%",
