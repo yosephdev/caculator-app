@@ -41,5 +41,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@parcel/babel-preset-env": "^2.0.1",
+    "autoprefixer": "^10.4.0"
+  }
 }
