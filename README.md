@@ -18,9 +18,9 @@ Thanks for checking out this calculator app built with React.
 
 ## Installation
 
-1. `git clone https://github.com/isakbet/calculator.git`
+1. `git clone https://github.com/isakbet/caculator-app`
 
-2. `cd calculator`
+2. `cd calculator-app`
 
 3. `npm install`
 
@@ -28,7 +28,7 @@ Thanks for checking out this calculator app built with React.
 
 ## Next steps
 
-Users should be able to:
+Build it further so that users can be able to:
 
 - See the size of the elements based on their device's screen size
 - Adjust the color theme based on their preference
