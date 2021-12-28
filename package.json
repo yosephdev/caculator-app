@@ -1,7 +1,8 @@
 {
+  "homepage": "https://cacultaor-app.vercel.app/",
+  "description": "![Screenshot for the Calculator app](./public/screencapture-calc.png)",
   "name": "calculator-app",
-  "description": "![Design preview for the Calculator app coding challenge](./design/desktop-preview.jpg)",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "chokidar": "^3.5.2",
@@ -40,10 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.5",
-    "@parcel/babel-preset-env": "^2.0.1",
-    "autoprefixer": "^10.4.0"
   }
 }
