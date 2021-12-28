@@ -6,7 +6,7 @@ Thanks for checking out this project.
 
 A calculator app built with React.
 
-![Calculator app Screenshot](https://)
+![Calculator app Screenshot](./public/screencapture-calc.png)
 
 ## Features
 
