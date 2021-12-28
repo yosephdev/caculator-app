@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Textfit } from 'react-textfit';
-import './App.css';
+import React, { useState } from 'react'
+import { Textfit } from 'react-textfit'
+import './App.css'
 
 const Screen = ({ res }) => {
   return (
@@ -158,33 +158,61 @@ const App = () => {
   }
 
   return (
-    <div className='calc-wrapper'>
-      <Screen res={calc.num ? calc.num : calc.res} />
-      <div className='button-wrapper'>
-        {btnValues.flat().map((btn, i) => {
-          return (
-            <Button
-              key={i}
-              className={btn === '=' ? 'equals' : ''}
-              value={btn}
-              onClick={
-                btn === 'C'
-                  ? reset
-                  : btn === '+-'
-                  ? invert
-                  : btn === '%'
-                  ? percent
-                  : btn === '='
-                  ? result
-                  : btn === '/' || btn === 'X' || btn === '-' || btn === '+'
-                  ? arithmetics
-                  : numClick
-              }
-            />
-          )
-        })}
-      </div>
-    </div>
+    <>
+      {' '}
+      <main>
+        <nav>
+          <header>calc</header>
+          <aside>
+            <p>theme</p>
+            <div id='theme-grid'>
+              <div id='theme-numbers'>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+              </div>
+              <div id='theme-bullets'>
+                <div>
+                  <div id='bullet'></div>
+                </div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </aside>
+        </nav>
+
+        <div className='calc-wrapper'>
+          <Screen res={calc.num ? calc.num : calc.res} />
+          <div className='button-wrapper'>
+            {btnValues.flat().map((btn, i) => {
+              return (
+                <Button
+                  key={i}
+                  className={btn === '=' ? 'equals' : ''}
+                  value={btn}
+                  onClick={
+                    btn === 'C'
+                      ? reset
+                      : btn === '+-'
+                      ? invert
+                      : btn === '%'
+                      ? percent
+                      : btn === '='
+                      ? result
+                      : btn === '/' || btn === 'X' || btn === '-' || btn === '+'
+                      ? arithmetics
+                      : numClick
+                  }
+                />
+              )
+            })}
+          </div>
+        </div>
+        <br></br>
+        <footer>&copy; Yoseph Berhane - 2021</footer>
+      </main>
+    </>
   )
 }
 
