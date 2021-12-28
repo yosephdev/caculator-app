@@ -1,7 +1,6 @@
 {
-  "homepage": "https://github.com/isakbet/caculator-app#readme",
-  "description": "![Screenshot for the Calculator app](./public/screencapture-calc.png)",
-  "name": "calculator-app",
+  "homepage": "",
+  "name": "calculator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,8 +8,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^5.0.0",
-    "react-textfit": "^1.1.1",
-    "svgo": "^2.5.0"
+    "react-textfit": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,16 +17,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/isakbet/caculator-app.git"
-  },
-  "keywords": [],
-  "author": "Yoseph Berhane",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/isakbet/caculator-app/issues"
   },
   "browserslist": {
     "production": [
