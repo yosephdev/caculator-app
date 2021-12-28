@@ -10,7 +10,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^5.0.0",
     "react-textfit": "^1.1.1",
-    "svgo": "^2.8.0"
+    "svgo": "^2.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
