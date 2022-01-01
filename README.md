@@ -30,7 +30,7 @@ Thanks for checking out this calculator app built with React.
 
 Build it further so that users can be able to:
 
-- See the size of the elements based on their device's screen size
+- See the size of the elements based on their device's screen size (done)
 - Adjust the color theme based on their preference
 
 ## License
