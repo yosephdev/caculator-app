@@ -210,7 +210,7 @@ const App = () => {
           </div>
         </div>
         <br></br>
-        <footer>&copy; Yoseph Berhane - 2021</footer>
+        <footer>&copy; Yoseph Berhane - 2022</footer>
       </main>
     </>
   )
