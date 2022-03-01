@@ -1,8 +1,6 @@
-# React - Calculator App
+# Calculator App
 
-## Welcome to my github page! 👋
-
-Thanks for checking out this calculator app built with React.
+## Demo
 
 ![Calculator app Screenshot](./public/screencapture-calc.png)
 
