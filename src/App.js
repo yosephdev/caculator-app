@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
-import { useState, useEffect } from "react";
 
 const App = () => {
   const [theme, setTheme] = useState("1");
@@ -45,7 +45,6 @@ const App = () => {
   useEffect(() => {
     const root = document.documentElement;
     root.style.setProperty("--theme-number", theme);
-
     const bullets = document.querySelectorAll("#theme-bullets > div");
     bullets.forEach((bullet) => {
       bullet.classList.remove("active");
@@ -55,25 +54,25 @@ const App = () => {
 
   return (
     <div className="calc-wrapper">
-      <nav>
-        <header>Calculator</header>
-        <aside>
-          <p>Theme</p>
+      <nav className="nav">
+        <header className="header">Calcumate</header>
+        <aside className="aside">
+          <p className="theme-text">Theme</p>
           <div id="theme-grid">
             <div id="theme-numbers">
-              <div onClick={() => handleThemeChange("1")}>1</div>
-              <div onClick={() => handleThemeChange("2")}>2</div>
-              <div onClick={() => handleThemeChange("3")}>3</div>
+              <div className="theme-number" onClick={() => handleThemeChange("1")}>1</div>
+              <div className="theme-number" onClick={() => handleThemeChange("2")}>2</div>
+              <div className="theme-number" onClick={() => handleThemeChange("3")}>3</div>
             </div>
             <div id="theme-bullets">
               <div onClick={() => handleThemeChange("1")}>
-                <div id="bullet"></div>
+                <div className="bullet"></div>
               </div>
               <div onClick={() => handleThemeChange("2")}>
-                <div id="bullet"></div>
+                <div className="bullet"></div>
               </div>
               <div onClick={() => handleThemeChange("3")}>
-                <div id="bullet"></div>
+                <div className="bullet"></div>
               </div>
             </div>
           </div>
@@ -81,6 +80,7 @@ const App = () => {
       </nav>
       <div className="screen-wrapper">
         <input
+          className="screen"
           type="text"
           readOnly
           value={input}
@@ -108,7 +108,7 @@ const App = () => {
         <button onClick={() => setInput(input + "5")}>5</button>
         <button onClick={() => setInput(input + "6")}>6</button>
         <button className="gray" onClick={() => handleOperatorClick("-")}>
-          –
+
         </button>
         <button onClick={() => setInput(input + "1")}>1</button>
         <button onClick={() => setInput(input + "2")}>2</button>
@@ -120,12 +120,12 @@ const App = () => {
           0
         </button>
         <button onClick={() => setInput(input + ".")}>.</button>
-        <button className="pink" onClick={handleEqualClick}>
+        <button className="orange" onClick={handleEqualClick}>
           =
         </button>
       </div>
     </div>
   );
-};
+}
 
 export default App;
