@@ -1,5 +1,5 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.css";
+import { useState, useEffect } from "react";
 
 const App = () => {
   const [theme, setTheme] = useState("1");
@@ -58,7 +58,7 @@ const App = () => {
       <nav>
         <header>Calculator</header>
         <aside>
-          <p>theme</p>
+          <p>Theme</p>
           <div id="theme-grid">
             <div id="theme-numbers">
               <div onClick={() => handleThemeChange("1")}>1</div>
@@ -80,7 +80,12 @@ const App = () => {
         </aside>
       </nav>
       <div className="screen-wrapper">
-        <input type="text" readOnly value={input} />
+        <input
+          type="text"
+          readOnly
+          value={input}
+          onChange={handleInputChange}
+        />
         <div className="result">{result}</div>
       </div>
       <div className="button-wrapper">
