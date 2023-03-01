@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
 
-/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1140,22,1.875,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
-
 :root {
   --step--2: clamp(0.78rem, 0.93rem + -0.76vw, 0.39rem);
   --step--1: clamp(0.94rem, 1.02rem + -0.40vw, 0.73rem);
@@ -33,12 +31,7 @@ body {
   justify-content: center;
   background-color: hsl(222, 26%, 31%);
   transition: 0.8s;
-  -webkit-transition: 0.8s;
-  -moz-transition: 0.8s;
-  -ms-transition: 0.8s;
-  -o-transition: 0.8s;
 }
-
 
 aside,
 div,
@@ -68,6 +61,7 @@ nav {
   stroke: currentColor;
   fill: currentColor;
 }
+
 .icon-library {
   width: 16px;
 }
