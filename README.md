@@ -2,7 +2,7 @@
 
 ## Demo
 
-![Calculator app Screenshot](./public/screencapture-calc.png)
+![Calculator app Screenshot](./public/calcumate.jpeg)
 
 ## Features
 
