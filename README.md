@@ -1,8 +1,8 @@
 # Calculator App
 
-## Demo
+## Preview
 
-![Calculator app Screenshot](./public/calcumate.jpeg)
+![Calcumate Screenshot](./public/calcumate.jpeg)
 
 ## Features
 
