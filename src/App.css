@@ -40,7 +40,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
 nav header {
@@ -67,20 +68,27 @@ nav aside p {
   text-align: center;
 }
 
-#theme-bullets div {
+
+#theme-bullets>div {
+  margin-right: 10px;
   cursor: pointer;
 }
 
 #bullet {
   width: 10px;
   height: 10px;
-  background-color: var(--primary-text-color);
   border-radius: 50%;
-  margin: 0 auto;
+  background-color: var(--theme-color);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
 }
 
 #theme-bullets .active #bullet {
   background-color: var(--button-pink-bg-color);
+}
+
+#theme-bullets>div.active #bullet {
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+  transform: scale(1.2);
 }
 
 .screen-wrapper {
@@ -126,56 +134,55 @@ button {
   cursor: pointer;
   transition: background-color 0.2s;
 }
-  
-    button:active {
-      background-color: var(--button-active-bg-color);
-      color: var(--button-active-text-color);
-    }
-  
-    button.gray {
-      background-color: var(--button-gray-bg-color);
-      color: var(--primary-text-color);
-    }
-  
-    button.pink {
-      background-color: var(--button-pink-bg-color);
-    }
-  
-    button.long {
-      grid-column: span 2;
-    }
-  
-    button.ac {
-      grid-row: 1;
-    }
-  
-    button.zero {
-      grid-column: span 2;
-    }
-  
-    button.equal {
-      grid-row: 5;
-    }
-  
-    button:hover {
-      filter: brightness(90%);
-    }
-  
-    @media screen and (max-width: 768px) {
-      .calc-wrapper {
-        max-width: 100%;
-        border-radius: 0;
-      }
-    }
-  
-    @media screen and (max-width: 480px) {
-      .button-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 60px);
-      }
-  
-      button {
-        font-size: 20px;
-      }
-    }
-  
+
+button:active {
+  background-color: var(--button-active-bg-color);
+  color: var(--button-active-text-color);
+}
+
+button.gray {
+  background-color: var(--button-gray-bg-color);
+  color: var(--primary-text-color);
+}
+
+button.pink {
+  background-color: var(--button-pink-bg-color);
+}
+
+button.long {
+  grid-column: span 2;
+}
+
+button.ac {
+  grid-row: 1;
+}
+
+button.zero {
+  grid-column: span 2;
+}
+
+button.equal {
+  grid-row: 5;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+@media screen and (max-width: 768px) {
+  .calc-wrapper {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .button-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 60px);
+  }
+
+  button {
+    font-size: 20px;
+  }
+}
