@@ -1,219 +1,126 @@
-import React, { useState } from 'react'
-import { Textfit } from 'react-textfit'
-import './App.css'
-
-const Screen = ({ res }) => {
-  return (
-    <Textfit className='screen-wrapper' mode='single' max={70}>
-      {res}
-    </Textfit>
-  )
-}
-
-const Button = ({ className, onClick, value }) => {
-  return (
-    <button className={className} onClick={onClick}>
-      {value}
-    </button>
-  )
-}
-
-const btnValues = [
-  ['C', '+-', '%', '/'],
-  [7, 8, 9, 'X'],
-  [4, 5, 6, '-'],
-  [1, 2, 3, '+'],
-  [0, '.', '='],
-]
-
-const toLocaleString = (x, sep, grp) => {
-  var sx = ('' + x).split('.'),
-    s = '',
-    i,
-    j
-  sep || (sep = ' ')
-  grp || grp === 0 || (grp = 3)
-  i = sx[0].length
-  while (i > grp) {
-    j = i - grp
-    s = sep + sx[0].slice(j, i) + s
-    i = j
-  }
-  s = sx[0].slice(0, i) + s
-  sx[0] = s
-  return sx.join('.')
-}
-
-const removeSpaces = (num) => num.toString().replace(/\s/g, '')
+import './App.css';
+import { useState, useEffect } from 'react';
 
 const App = () => {
-  let [calc, setCalc] = useState({
-    sign: '',
-    num: 0,
-    res: 0,
-  })
+  const [theme, setTheme] = useState("1");
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState("");
 
-  const numClick = (e) => {
-    const value = e.target.innerHTML
-    if (
-      (calc.num === '0' && value === '0') || //avoid entering 00034
-      (calc.num.toString().includes('.') && value === '.') || //avoid entering 0..34
-      (calc.res && !calc.num && value === '.') //avoid adding comma in the result
-    )
-      return
+  const handleInputChange = (event) => {
+    setInput(event.target.value);
+  };
 
-    if (!calc.sign) {
-      calc.res = 0 //reset after equal press
+  const handleClear = () => {
+    setInput("");
+    setResult("");
+  };
+
+  const handleBackspace = () => {
+    setInput(input.slice(0, -1));
+  };
+
+  const handleOperatorClick = (operator) => {
+    if (input === "") return;
+    if (result !== "") {
+      setInput(result + operator);
+      setResult("");
+    } else {
+      setInput(input + operator);
     }
+  };
 
-    if (removeSpaces(calc.num).length < 16) {
-      setCalc({
-        ...calc,
-        num:
-          !calc.num && value === '.' // format to 0. if . pressed first
-            ? '0.'
-            : calc.num && value === '.' // add comma for number
-            ? calc.num + '.'
-            : toLocaleString(
-                (!calc.num || calc.num === '0' ? value : (calc.num += value))
-                  .toString()
-                  .replace(/\s/g, '')
-              ),
-      })
+  const handleEqualClick = () => {
+    if (input === "") return;
+    try {
+      setResult(eval(input).toString());
+    } catch (error) {
+      setResult("Error");
     }
-  }
+  };
 
-  const invert = () => {
-    setCalc({
-      ...calc,
-      num: calc.num ? toLocaleString(removeSpaces(calc.num) * -1) : 0,
-      res: calc.res ? toLocaleString(removeSpaces(calc.res) * -1) : 0,
-      sign: '',
-    })
-  }
+  const handleThemeChange = (themeNumber) => {
+    setTheme(themeNumber);
+  };
 
-  const percent = () => {
-    let num = calc.num ? parseFloat(removeSpaces(calc.num)) : 0
-    let res = calc.res ? parseFloat(removeSpaces(calc.res)) : 0
-    setCalc({
-      ...calc,
-      num: (num /= Math.pow(100, 1)),
-      res: (res /= Math.pow(100, 1)),
-      sign: '',
-    })
-  }
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--theme-number", theme);
 
-  const reset = () => {
-    setCalc({
-      ...calc,
-      sign: '',
-      num: 0,
-      res: 0,
-    })
-  }
-
-  const result = () => {
-    const [conNum, conRes] = [
-      Number(calc.sign && calc.num ? removeSpaces(calc.num) : 0),
-      Number(calc.res ? removeSpaces(calc.res) : 0),
-    ]
-
-    const math = (a, b, sign) =>
-      sign === '+' ? a + b : sign === '-' ? a - b : sign === 'X' ? a * b : a / b
-
-    const total = math(conRes, conNum, calc.sign)
-    if (calc.sign && calc.num) {
-      //to prevent repetitive equals press
-      setCalc({
-        ...calc,
-        res:
-          calc.num === '0' && calc.sign === '/'
-            ? "Can't divide with 0"
-            : toLocaleString(total),
-        num:
-          !calc.res ||
-          (!calc.res && calc.sign === 'X') ||
-          (!calc.res && calc.sign === '/')
-            ? calc.num
-            : 0,
-        sign: '',
-      })
-    }
-
-    if (calc.num && calc.sign.length === 1) return total
-  }
-
-  const arithmetics = (e) => {
-    setCalc({
-      ...calc,
-      sign: e.target.innerHTML,
-      res:
-        !calc.res && calc.num
-          ? toLocaleString(Number(removeSpaces(calc.num)))
-          : calc.res && calc.num && calc.sign
-          ? toLocaleString(result()) //2+2+2 without equal
-          : calc.res, //for repetitive arithmetic presses
-      num: 0,
-    })
-  }
+    const bullets = document.querySelectorAll("#theme-bullets > div");
+    bullets.forEach((bullet) => {
+      bullet.classList.remove("active");
+    });
+    bullets[theme - 1].classList.add("active");
+  }, [theme]);
 
   return (
-    <>
-      {' '}
-      <main>
-        <nav>
-          <header>calc</header>
-          <aside>
-            <p>theme</p>
-            <div id='theme-grid'>
-              <div id='theme-numbers'>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+    <div className="calc-wrapper">
+      <nav>
+        <header>calc</header>
+        <aside>
+          <p>theme</p>
+          <div id="theme-grid">
+            <div id="theme-numbers">
+              <div onClick={() => handleThemeChange("1")}>1</div>
+              <div onClick={() => handleThemeChange("2")}>2</div>
+              <div onClick={() => handleThemeChange("3")}>3</div>
+            </div>
+            <div id="theme-bullets">
+              <div onClick={() => handleThemeChange("1")}>
+                <div id="bullet"></div>
               </div>
-              <div id='theme-bullets'>
-                <div>
-                  <div id='bullet'></div>
-                </div>
-                <div></div>
-                <div></div>
+              <div onClick={() => handleThemeChange("2")}>
+                <div id="bullet"></div>
+              </div>
+              <div onClick={() => handleThemeChange("3")}>
+                <div id="bullet"></div>
               </div>
             </div>
-          </aside>
-        </nav>
-
-        <div className='calc-wrapper'>
-          <Screen res={calc.num ? calc.num : calc.res} />
-          <div className='button-wrapper'>
-            {btnValues.flat().map((btn, i) => {
-              return (
-                <Button
-                  key={i}
-                  className={btn === '=' ? 'equals' : ''}
-                  value={btn}
-                  onClick={
-                    btn === 'C'
-                      ? reset
-                      : btn === '+-'
-                      ? invert
-                      : btn === '%'
-                      ? percent
-                      : btn === '='
-                      ? result
-                      : btn === '/' || btn === 'X' || btn === '-' || btn === '+'
-                      ? arithmetics
-                      : numClick
-                  }
-                />
-              )
-            })}
           </div>
-        </div>
-        <br></br>
-        <footer>&copy; Yoseph Berhane - 2022</footer>
-      </main>
-    </>
-  )
-}
+        </aside>
+      </nav>
+      <div className="screen-wrapper">
+        <input type="text" readOnly value={input} />
+        <div className="result">{result}</div>
+      </div>
+      <div className="button-wrapper">
+        <button className="gray" onClick={handleClear}>
+          AC
+        </button>
+        <button className="gray" onClick={handleBackspace}>
+          ←
+        </button>
+        <button className="gray" onClick={() => handleOperatorClick("/")}>
+          ÷
+        </button>
+        <button onClick={() => setInput(input + "7")}>7</button>
+        <button onClick={() => setInput(input + "8")}>8</button>
+        <button onClick={() => setInput(input + "9")}>9</button>
+        <button className="gray" onClick={() => handleOperatorClick("*")}>
+          ×
+        </button>
+        <button onClick={() => setInput(input + "4")}>4</button>
+        <button onClick={() => setInput(input + "5")}>5</button>
+        <button onClick={() => setInput(input + "6")}>6</button>
+        <button className="gray" onClick={() => handleOperatorClick("-")}>
+          –
+        </button>
+        <button onClick={() => setInput(input + "1")}>1</button>
+        <button onClick={() => setInput(input + "2")}>2</button>
+        <button onClick={() => setInput(input + "3")}>3</button>
+        <button className="gray" onClick={() => handleOperatorClick("+")}>
+          +
+        </button>
+        <button className="zero" onClick={() => setInput(input + "0")}>
+          0
+        </button>
+        <button onClick={() => setInput(input + ".")}>.</button>
+        <button className="pink" onClick={handleEqualClick}>
+          =
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default App;
