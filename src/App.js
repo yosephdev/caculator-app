@@ -56,7 +56,7 @@ const App = () => {
   return (
     <div className="calc-wrapper">
       <nav>
-        <header>calc</header>
+        <header>Calculator</header>
         <aside>
           <p>theme</p>
           <div id="theme-grid">
